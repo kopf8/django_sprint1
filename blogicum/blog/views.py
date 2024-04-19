@@ -1,3 +1,4 @@
+from django.http import HttpResponseNotFound
 from django.shortcuts import render
 
 posts = [
@@ -43,18 +44,20 @@ posts = [
     },
 ]
 
+
 def index(request):
     template = 'blog/index.html'
     context = {'posts_list': posts}
     return render(request, template, context)
+
 
 def post_detail(request, id):
     template = 'blog/detail.html'
     if any(post['id'] == id for post in posts):
         context = {'post': posts[id]}
         return render(request, template, context)
-    else:
-        return HttpResponseNotFound("Запрошенная страница не найдена")
+    return HttpResponseNotFound("Запрошенная страница не найдена")
+
 
 def category_posts(request, category_slug):
     template = 'blog/category.html'
