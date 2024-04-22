@@ -1,4 +1,4 @@
-from django.http import HttpResponseNotFound
+from django.http import Http404
 from django.shortcuts import render
 
 posts = [
@@ -53,13 +53,16 @@ def index(request):
 
 def post_detail(request, id):
     template = 'blog/detail.html'
-    if any(post['id'] == id for post in posts):
-        context = {'post': posts[id]}
-        return render(request, template, context)
-    return HttpResponseNotFound("Запрошенная страница не найдена")
+    # if any(post['id'] == id for post in posts):
+    #     context = {'post': posts[id]}
+    #     return render(request, template, context)
+    # return HttpResponseNotFound("Запрошенная страница не найдена")
+    posts_dict = {post['id']: post for post in posts}
+    if post := posts_dict.get(id):
+        return render(request, template, post)
+    raise Http404('Requested page not found (Error 404).')
 
 
 def category_posts(request, category_slug):
     template = 'blog/category.html'
-    context = {'category_slug': category_slug}
-    return render(request, template, context)
+    return render(request, template, {'category_slug': category_slug})

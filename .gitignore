@@ -1,3 +1,7 @@
+# Initial HTML drafts from Yandex
+html/
+blogicum/static/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -152,3 +156,5 @@ media/
 build_tests/
 yap_testing
 html/img/img/
+/html/
+/blogicum/static/
