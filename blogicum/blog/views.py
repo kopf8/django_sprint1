@@ -44,6 +44,7 @@ posts = [
     },
 ]
 
+posts_dict = {post['id']: post for post in posts}
 
 def index(request):
     template = 'blog/index.html'
@@ -53,7 +54,6 @@ def index(request):
 
 def post_detail(request, id):
     template = 'blog/detail.html'
-    posts_dict = {post['id']: post for post in posts}
     if post := posts_dict.get(id):
         return render(request, template, {'post': post})
     raise Http404('Requested page not found (Error 404).')

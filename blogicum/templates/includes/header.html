@@ -9,7 +9,7 @@
       <ul class="nav nav-pills">
         {% with request.resolver_match.view_name as view_name %}
         <li class="nav-item">
-          <a class="nav-link {% if view_name == 'blog:index' or view_name == 'blog:post_detail' %}active{% endif %}"
+          <a class="nav-link {% if view_name == 'blog:index' or view_name == 'blog:post_detail' or view_name == 'blog:category_posts' %}active{% endif %}"
              href="{% url 'blog:index' %}">
             Лента записей
           </a>

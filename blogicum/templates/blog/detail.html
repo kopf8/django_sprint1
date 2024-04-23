@@ -3,7 +3,5 @@
   {{ post.location }}. {{ post.date }}
 {% endblock %}
 {% block content %}
-  <div class="container py-5">
-    {% include "blog/includes/post_card.html" %}
-  </div>
+  {% include "blog/includes/post_card.html" %}
 {% endblock %}
