@@ -1,6 +1,15 @@
 # Initial HTML drafts from Yandex
 html/
+tests/
 blogicum/static/
+blogicum/blog/migrations/
+blogicum/blog/models.py
+blogicum/blog/tests.py
+blogicum/blog/admin.py
+blogicum/pages/migrations/
+blogicum/pages/models.py
+blogicum/pages/tests.py
+blogicum/pages/admin.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
